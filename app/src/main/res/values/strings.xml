@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">LazyFit</string>
+    <string name="button_search">Search button</string>
+    <string name="button_account">Account button</string>
+    <string name="button_calculator">Calculator button</string>
+    <string name="button_recipes">Recipes button</string>
+    <string name="better_relationship"><b>Want a better relationship with food?</b></string>
+    <string name="help_you"><b>We will help you!</b></string>
+    <string name="start">Start</string>
+    <string name="about_us"><u>About us</u></string>
+    <string name="logo"><u>Logo</u></string>
+    <string name="app_text">In our application you can find new recipes to make from products that are in your fridge.\n\nThat sounds very simple, right?\n\nAlso you will be able to add  recipes to your "favorites" list.\n\nOne more thing - now you can also calculate your calorie intake.\n\nIf you are struggling with calorie counting and healthy eating, then this is the right place for you!\n\nJoin us Now!\nLazyFit Creators</string>
+
 </resources>

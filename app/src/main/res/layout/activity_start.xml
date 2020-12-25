@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <TextView
+        android:id="@+id/txt_relationship"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/better_relationship"
+        app:layout_constraintBottom_toTopOf="@+id/txt_help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/txt_help"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/help_you"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+
+        app:layout_constraintBottom_toTopOf="@+id/btn_about"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_help" />
+
+
+    <Button
+        android:id="@+id/btn_about"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:text="@string/about_us"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:backgroundTint="@color/light_green"
+        android:textColor="@color/orange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_help" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="172dp"
+        android:layout_height="165dp"
+        android:contentDescription="@string/logo"
+        app:layout_constraintBottom_toTopOf="@+id/txt_help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lazyfit" />
+</androidx.constraintlayout.widget.ConstraintLayout>
