@@ -3,6 +3,7 @@
     package="lv.anda.lazyfit">
 
     <application
+        android:name=".GlobalActivity"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,14 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LazyFit">
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".StartActivity">
+        <activity android:name=".CalculatorActivity"/>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StartActivity" />
     </application>
 
 </manifest>

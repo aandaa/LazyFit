@@ -17,9 +17,9 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Button btn_main_act = findViewById(R.id.btn_start);
-        btn_main_act.setOnClickListener(v -> {
-            Intent act_main_intent = new Intent(getApplicationContext(), MainActivity.class);
+        Button btn_settings = findViewById(R.id.btn_start);
+        btn_settings.setOnClickListener(v -> {
+            Intent act_main_intent = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivity(act_main_intent);
         });
 
