@@ -32,7 +32,7 @@ public class AccountActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.ic_recipes) {
-                Intent intent = new Intent(AccountActivity.this, MainActivity.class);
+                Intent intent = new Intent(AccountActivity.this, TabbedActivity.class);
                 startActivity(intent);
             } else if (id == R.id.ic_calculator) {
                 Intent intent1 = new Intent(AccountActivity.this, CalculatorActivity.class);

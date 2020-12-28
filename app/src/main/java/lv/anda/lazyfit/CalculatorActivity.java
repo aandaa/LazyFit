@@ -26,7 +26,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
             int id = item.getItemId();
             if (id == R.id.ic_recipes) {
-                Intent intent = new Intent(CalculatorActivity.this, MainActivity.class);
+                Intent intent = new Intent(CalculatorActivity.this, TabbedActivity.class);
                 startActivity(intent);
             } else if (id == R.id.ic_calculator) {
             } else if (id == R.id.ic_search) {

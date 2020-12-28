@@ -16,12 +16,12 @@ public class GlobalActivity extends Application {
 
         //if user opens app for the first time open StartActivity, if he has already previously opened the open MainActivity
         SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
-        boolean value = sharedPreferences.getBoolean("notFirstTimee",false);
+        boolean value = sharedPreferences.getBoolean("notFirstTime",false);
         Intent intent;
         if (value)
         {
             //intent = new Intent(this, MainActivity.class);
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, TabbedActivity.class);
         }
         else {
             intent = new Intent(this, StartActivity.class);

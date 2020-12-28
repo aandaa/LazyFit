@@ -6,41 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout"
+    <LinearLayout
+        android:id="@+id/linear_layout_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
 
-        <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+        <TableRow
+            android:paddingStart="15dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="5">
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavView_Bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/text_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <ImageButton
+                android:contentDescription="@string/image"
+                android:id="@+id/imageBtn_search"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:background="@color/orange"
-                app:itemIconTint="@drawable/selector"
-                app:itemTextColor="@drawable/selector"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_navigation_menu">
+                android:backgroundTint="@color/light_green"
+                android:gravity="center_horizontal|top"
+                android:stateListAnimator="@null"
+                android:tint="@color/orange"
+                app:srcCompat="@drawable/ic_search" />
+        </TableRow>
 
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-        </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8" >
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <TableLayout
+                android:id="@+id/table_layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            </TableLayout>
+        </ScrollView>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/coordinatorLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                tools:context=".TabbedActivity">
+
+                <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom">
+
+                    <com.google.android.material.bottomnavigation.BottomNavigationView
+                        android:id="@+id/bottomNavView_Bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/orange"
+                        app:itemIconTint="@drawable/selector"
+                        app:itemTextColor="@drawable/selector"
+                        app:labelVisibilityMode="labeled"
+                        app:menu="@menu/bottom_navigation_menu">
+
+                    </com.google.android.material.bottomnavigation.BottomNavigationView>
+                </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </TableRow>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
