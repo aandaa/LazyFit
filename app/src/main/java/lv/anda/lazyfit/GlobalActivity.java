@@ -1,12 +1,8 @@
 package lv.anda.lazyfit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 
 public class GlobalActivity extends Application {
 
@@ -21,7 +17,7 @@ public class GlobalActivity extends Application {
         if (value)
         {
             //intent = new Intent(this, MainActivity.class);
-            intent = new Intent(this, TabbedActivity.class);
+            intent = new Intent(this, MainActivity.class);
         }
         else {
             intent = new Intent(this, StartActivity.class);

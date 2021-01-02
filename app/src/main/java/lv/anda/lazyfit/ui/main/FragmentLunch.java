@@ -31,30 +31,27 @@ import org.json.JSONObject;
 import lv.anda.lazyfit.R;
 import lv.anda.lazyfit.RecipeActivity;
 
-public class Fragment3 extends Fragment {
+public class FragmentLunch extends Fragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         sharedPref = this.getActivity().getSharedPreferences("myKey", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Side";
+        String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian";
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this::saveData, error -> Log.e("Rest Response error", error.toString()));
         requestQueue.add(objectRequest);
 
-        return inflater.inflate(R.layout.fragment3_layout, container, false);
+        return inflater.inflate(R.layout.fragment_lunch, container, false);
     }
 
     private void saveData(Object result) {
         try {
             JSONObject object = new JSONObject(result.toString());
-            //text.setText(object2.getString("strMeal"));
-            //Log.e("Instructions", object2.getString("strInstructions"));
 
-            final TableLayout detailsTable = (TableLayout) getView().findViewById(R.id.table_layout_frag3);
+            final TableLayout detailsTable = (TableLayout) getView().findViewById(R.id.table_layout_frag2);
 
             for (int i=0; i<object.getJSONArray("meals").length(); i++) {
                 JSONObject object2 = new JSONObject(object.getJSONArray("meals").getString(i));
@@ -76,22 +73,19 @@ public class Fragment3 extends Fragment {
                 tv.setId(i);
                 tv.setGravity(Gravity.CENTER_VERTICAL);
                 tv.setText(object2.getString("strMeal"));
-                tv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int i=0;
-                        try {
-                            String s = object2.getString("idMeal");
-                            i = Integer.parseInt(s);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        editor.putInt("ID", i);
-                        editor.apply();
-                        Intent intent = new Intent(getActivity(), RecipeActivity.class);
-                        startActivity(intent);
-
+                tv.setOnClickListener(v -> {
+                    int i1 =0;
+                    try {
+                        String s = object2.getString("idMeal");
+                        i1 = Integer.parseInt(s);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                    editor.putInt("ID", i1);
+                    editor.apply();
+                    Intent intent = new Intent(getActivity(), RecipeActivity.class);
+                    startActivity(intent);
+
                 });
                 detailsTable.addView(tableRow);
 
@@ -102,8 +96,6 @@ public class Fragment3 extends Fragment {
         {
             e.printStackTrace();
         }
-
-
 
     }
 }

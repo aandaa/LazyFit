@@ -1,6 +1,5 @@
 package lv.anda.lazyfit;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,11 +10,9 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -46,7 +43,7 @@ public class SearchActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.ic_recipes) {
-                Intent intent = new Intent(SearchActivity.this, TabbedActivity.class);
+                Intent intent = new Intent(SearchActivity.this, MainActivity.class);
                 startActivity(intent);
             } else if (id == R.id.ic_calculator) {
                 Intent intent1 = new Intent(SearchActivity.this, CalculatorActivity.class);
@@ -89,45 +86,43 @@ public class SearchActivity extends AppCompatActivity {
             JSONObject object = new JSONObject(result.toString());
             final LinearLayout detailsTable = (LinearLayout) findViewById(R.id.table_layout_search);
 
-            for (int i=0; i<object.getJSONArray("meals").length(); i++) {
-                JSONObject object2 = new JSONObject(object.getJSONArray("meals").getString(i));
-                final TableRow tableRow = (TableRow) getLayoutInflater().inflate(R.layout.tablerow, null);
-                tableRow.setId(i);
+                for (int i=0; i<object.getJSONArray("meals").length(); i++) {
+                    JSONObject object2 = new JSONObject(object.getJSONArray("meals").getString(i));
+                    final TableRow tableRow = (TableRow) getLayoutInflater().inflate(R.layout.tablerow, null);
+                    tableRow.setId(i);
+                    TextView tv;
+                    String url = object2.getString("strMealThumb");
+                    ImageView imageview = (ImageView)tableRow.findViewById(R.id.imageView);
 
-                TextView tv;
-                String url = object2.getString("strMealThumb");
-                ImageView imageview = (ImageView)tableRow.findViewById(R.id.imageView);
+                    RequestOptions requestOptions = new RequestOptions();
 
-                RequestOptions requestOptions = new RequestOptions();
+                    Glide.with(SearchActivity.this)
+                            .load(url)
+                            .apply(requestOptions)
+                            .into(imageview);
 
-                Glide.with(SearchActivity.this)
-                        .load(url)
-                        .apply(requestOptions)
-                        .into(imageview);
+                    tv = (TextView) tableRow.findViewById(R.id.tableCell1);
+                    tv.setId(i);
+                    tv.setGravity(Gravity.CENTER_VERTICAL);
+                    tv.setText(object2.getString("strMeal"));
+                    tv.setOnClickListener(v -> {
 
-                tv = (TextView) tableRow.findViewById(R.id.tableCell1);
-                tv.setId(i);
-                tv.setGravity(Gravity.CENTER_VERTICAL);
-                tv.setText(object2.getString("strMeal"));
-                tv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        int i=0;
+                        int i1 =0;
                         try {
                             String s = object2.getString("idMeal");
-                            i = Integer.parseInt(s);
+                            i1 = Integer.parseInt(s);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        editor.putInt("ID", i);
+                        editor.putInt("ID", i1);
                         editor.apply();
                         Intent intent = new Intent(SearchActivity.this, RecipeActivity.class);
                         startActivity(intent);
-                    }
-                });
-                detailsTable.addView(tableRow);
-            }
+                    });
+                    detailsTable.addView(tableRow);
+                }
+
+
         }catch(Exception e)
         {
             e.printStackTrace();

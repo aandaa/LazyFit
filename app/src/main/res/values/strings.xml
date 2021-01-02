@@ -24,12 +24,12 @@
         <item>Male</item>
         <item>Prefer not to disclose</item>
     </string-array>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_tabbed">TabbedActivity</string>
-    <string name="tab_text_1">Breakfast</string>
-    <string name="tab_text_2">Lunch</string>
-    <string name="tab_text_3">Dinner</string>
-    <string name="tab_text_4">Snack</string>
+    <string name="tab_breakfast">Breakfast</string>
+    <string name="tab_lunch">Lunch</string>
+    <string name="tab_dinner">Dinner</string>
+    <string name="tab_snacks">Snacks</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="tab_products">Products</string>
     <string name="image">Image</string>
 
 </resources>

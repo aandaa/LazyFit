@@ -6,50 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
 
-    <ScrollView
-android:paddingTop="30dp"
-        android:paddingBottom="30dp"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:context=".MainActivity">
 
-        <TableLayout
-            android:id="@+id/table_layout_frag1"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginStart="3dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            android:theme="@style/Theme.LazyFit.AppBarOverlay">
 
-        </TableLayout>
-    </ScrollView>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:padding="@dimen/appbar_padding"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                app:tabTextAppearance="@style/MineCustomTabText"
+                app:tabSelectedTextColor="@color/orange"
+                app:tabTextColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_green" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout2"
-        app:layout_constraintVertical_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:context=".TabbedActivity">
-
-
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <com.google.android.material.circularreveal.CircularRevealRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="1"
             android:layout_gravity="bottom">
-
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavView_Bar"
@@ -65,7 +63,5 @@ android:paddingTop="30dp"
         </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

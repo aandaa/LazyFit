@@ -31,7 +31,7 @@ import org.json.JSONObject;
 import lv.anda.lazyfit.R;
 import lv.anda.lazyfit.RecipeActivity;
 
-public class Fragment4 extends Fragment {
+public class FragmentSnacks extends Fragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     @Nullable
@@ -45,7 +45,7 @@ public class Fragment4 extends Fragment {
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this::saveData, error -> Log.e("Rest Response error", error.toString()));
         requestQueue.add(objectRequest);
 
-        return inflater.inflate(R.layout.fragment4_layout, container, false);
+        return inflater.inflate(R.layout.fragment_snacks, container, false);
     }
 
     private void saveData(Object result) {
@@ -76,22 +76,19 @@ public class Fragment4 extends Fragment {
                 tv.setId(i);
                 tv.setGravity(Gravity.CENTER_VERTICAL);
                 tv.setText(object2.getString("strMeal"));
-                tv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int i=0;
-                        try {
-                            String s = object2.getString("idMeal");
-                            i = Integer.parseInt(s);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        editor.putInt("ID", i);
-                        editor.apply();
-                        Intent intent = new Intent(getActivity(), RecipeActivity.class);
-                        startActivity(intent);
-
+                tv.setOnClickListener(v -> {
+                    int i1 =0;
+                    try {
+                        String s = object2.getString("idMeal");
+                        i1 = Integer.parseInt(s);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                    editor.putInt("ID", i1);
+                    editor.apply();
+                    Intent intent = new Intent(getActivity(), RecipeActivity.class);
+                    startActivity(intent);
+
                 });
                 detailsTable.addView(tableRow);
 

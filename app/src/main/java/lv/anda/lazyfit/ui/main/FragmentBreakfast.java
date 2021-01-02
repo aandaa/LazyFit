@@ -31,20 +31,21 @@ import org.json.JSONObject;
 import lv.anda.lazyfit.R;
 import lv.anda.lazyfit.RecipeActivity;
 
-public class Fragment2 extends Fragment {
+public class FragmentBreakfast extends Fragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         sharedPref = this.getActivity().getSharedPreferences("myKey", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian";
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this::saveData, error -> Log.e("Rest Response error", error.toString()));
-        requestQueue.add(objectRequest);
+            String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast";
+            RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+            JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this::saveData, error -> Log.e("Rest Response error", error.toString()));
+            requestQueue.add(objectRequest);
 
-        return inflater.inflate(R.layout.fragment2_layout, container, false);
+        return inflater.inflate(R.layout.fragment_breakfast, container, false);
     }
 
     private void saveData(Object result) {
@@ -53,7 +54,7 @@ public class Fragment2 extends Fragment {
             //text.setText(object2.getString("strMeal"));
             //Log.e("Instructions", object2.getString("strInstructions"));
 
-            final TableLayout detailsTable = (TableLayout) getView().findViewById(R.id.table_layout_frag2);
+            final TableLayout detailsTable = (TableLayout) getView().findViewById(R.id.table_layout_frag1);
 
             for (int i=0; i<object.getJSONArray("meals").length(); i++) {
                 JSONObject object2 = new JSONObject(object.getJSONArray("meals").getString(i));
@@ -98,8 +99,9 @@ public class Fragment2 extends Fragment {
         {
             e.printStackTrace();
         }
-
+        
 
 
     }
+    
 }

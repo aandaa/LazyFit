@@ -1,6 +1,5 @@
 package lv.anda.lazyfit;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -26,7 +25,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
             int id = item.getItemId();
             if (id == R.id.ic_recipes) {
-                Intent intent = new Intent(CalculatorActivity.this, TabbedActivity.class);
+                Intent intent = new Intent(CalculatorActivity.this, MainActivity.class);
                 startActivity(intent);
             } else if (id == R.id.ic_calculator) {
             } else if (id == R.id.ic_search) {

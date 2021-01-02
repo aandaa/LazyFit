@@ -2,21 +2,14 @@ package lv.anda.lazyfit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -72,7 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
          editor.putInt("Calories", calories);
          editor.putString("Gender", gender);
          editor.apply();
-         Intent act_main_intent = new Intent(getApplicationContext(), TabbedActivity.class);
+         Intent act_main_intent = new Intent(getApplicationContext(), MainActivity.class);
          startActivity(act_main_intent);
         });
     }
