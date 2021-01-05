@@ -31,5 +31,9 @@
     <string name="tab_favorites">Favorites</string>
     <string name="tab_products">Products</string>
     <string name="image">Image</string>
+    <string name="dialog_title">All products</string>
+    <string name="dialog_save">Save</string>
+    <string name="edit_products">Edit products</string>
+    <string name="products_owned">Products you have:</string>
 
 </resources>

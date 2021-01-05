@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lv.anda.lazyfit.ui.main.SectionsPagerAdapterAcc;
 
 public class AccountActivity extends AppCompatActivity {
@@ -23,6 +26,8 @@ public class AccountActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs2);
         tabs.setupWithViewPager(viewPager);
+
+        List<String> listItems = new ArrayList<String>();
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavView_Bar);
