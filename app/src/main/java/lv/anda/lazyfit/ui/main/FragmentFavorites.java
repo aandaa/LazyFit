@@ -72,12 +72,6 @@ public class FragmentFavorites extends Fragment {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getFragmentManager().beginTransaction().detach(this).attach(this).commit();
-    }
-
     private void saveData(Object result) {
 
         try {
