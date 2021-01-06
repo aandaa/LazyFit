@@ -21,6 +21,7 @@ public class CalculatorActivity extends AppCompatActivity {
     //TextView inputText;
     public static final String mypreference = "mypref";
     public static final String Name = "inputTextKey";
+    Integer result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class CalculatorActivity extends AppCompatActivity {
         sharedpreferences = getSharedPreferences("prefID", Context.MODE_PRIVATE);
         String name = sharedpreferences.getString("textKey","0");
         TextView label = (TextView) findViewById(R.id.textViewCounter);
+        result=Integer.parseInt(name);
         if(name==""|| name==null){
             label.setText("0");
         }else {label.setText(name);}
@@ -98,7 +100,7 @@ public class CalculatorActivity extends AppCompatActivity {
                     Integer DairySum =DairyInt*4;
                     Integer FatSum= FatInt*9; //1g tauku = 9 kcal (38.9 kJ)
 
-                    Integer result= ProteinSum+GrainSum+VegetablesSum+FruitsSum+SugarSum+DairySum+FatSum;
+                    result= result+ProteinSum+GrainSum+VegetablesSum+FruitsSum+SugarSum+DairySum+FatSum;
                     sharedpreferences = getSharedPreferences("prefID", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("textKey", result.toString());
