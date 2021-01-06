@@ -48,6 +48,16 @@ public class FragmentFavorites extends Fragment {
         View view = inflater.inflate(R.layout.fragment_favorites, container, false);
         sharedPref = this.getActivity().getSharedPreferences("myKey", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
+
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        final LinearLayout detailsTable = (LinearLayout) getView().findViewById(R.id.table_layout_fragFav);
+        detailsTable.removeAllViews();
         String URL;
         for(int i=0; i<4 ; i++) {
             switch (i) {
@@ -69,7 +79,6 @@ public class FragmentFavorites extends Fragment {
             JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this::saveData, error -> Log.e("Rest Response error", error.toString()));
             requestQueue.add(objectRequest);
         }
-        return view;
     }
 
     private void saveData(Object result) {
