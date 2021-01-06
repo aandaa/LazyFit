@@ -13,12 +13,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LazyFit">
+        <activity android:name=".LauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".AccountActivity"
-            android:theme="@style/Theme.LazyFit.NoActionBar"></activity>
+            android:theme="@style/Theme.LazyFit.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.LazyFit.NoActionBar" />
+            android:theme="@style/Theme.LazyFit.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".RecipeActivity" />
         <activity android:name=".CalculatorActivity" />
         <activity
@@ -29,13 +42,7 @@
             android:name=".SettingsActivity"
             android:label="Settings"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity android:name=".StartActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".StartActivity" />
     </application>
 
 </manifest>

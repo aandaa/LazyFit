@@ -65,10 +65,13 @@ public class SearchActivity extends AppCompatActivity {
         final LinearLayout detailsTable = (LinearLayout) findViewById(R.id.table_layout_search);
         ImageButton search = (ImageButton) findViewById(R.id.imageBtn_search);
         String search_default = getRandom();
-        String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?i="+search_default;
-        RequestQueue requestQueue = Volley.newRequestQueue(SearchActivity.this);
-        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, response -> saveData(response), error -> Log.e("Rest Response error", error.toString()));
-        requestQueue.add(objectRequest);
+        if(search_default!=null){
+
+            String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?i="+search_default;
+            RequestQueue requestQueue = Volley.newRequestQueue(SearchActivity.this);
+            JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, response -> saveData(response), error -> Log.e("Rest Response error", error.toString()));
+            requestQueue.add(objectRequest);
+        }
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,15 +147,20 @@ public class SearchActivity extends AppCompatActivity {
     public String getRandom()
     {
         list.clear();
+        int random =0;
         int size = sharedPref.getInt("Products_size", 0);
-        final int random = new Random().nextInt(size);
         if(size!= 0){
+             random= new Random().nextInt(size);
             for(int i=0;i<size;i++)
             {
                 list.add(sharedPref.getString("Product_" + i, ""));
             }
         }
-        return list.get(random);
+        if(list.isEmpty()){
+            return null;
+        }else{
+            return list.get(random);
+        }
     }
 
 }

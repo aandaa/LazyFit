@@ -1,15 +1,16 @@
 package lv.anda.lazyfit;
 
-import android.app.Application;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 
-public class GlobalActivity extends Application {
+public class LauncherActivity extends AppCompatActivity {
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
         boolean value = sharedPreferences.getBoolean("notFirstTime",false);
         Intent intent;
@@ -22,5 +23,6 @@ public class GlobalActivity extends Application {
         }
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
 }
