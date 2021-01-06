@@ -25,13 +25,7 @@
             android:theme="@style/Theme.LazyFit.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.LazyFit.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.LazyFit.NoActionBar" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".CalculatorActivity" />
         <activity
