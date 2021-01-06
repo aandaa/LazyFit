@@ -2,6 +2,7 @@ package lv.anda.lazyfit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,9 +28,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class SearchActivity extends AppCompatActivity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
+    ArrayList<String> list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,15 +64,21 @@ public class SearchActivity extends AppCompatActivity {
         TextView text_search = (TextView) findViewById(R.id.text_search);
         final LinearLayout detailsTable = (LinearLayout) findViewById(R.id.table_layout_search);
         ImageButton search = (ImageButton) findViewById(R.id.imageBtn_search);
+        String search_default = getRandom();
+        String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?i="+search_default;
+        RequestQueue requestQueue = Volley.newRequestQueue(SearchActivity.this);
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, response -> saveData(response), error -> Log.e("Rest Response error", error.toString()));
+        requestQueue.add(objectRequest);
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(detailsTable.getChildCount() >0){
-                    detailsTable.removeViews(0,  detailsTable.getChildCount());
-                }
                 String search = text_search.getText().toString();
                 if(!(search.isEmpty()) || !(search.equals(""))){
+                    if(detailsTable.getChildCount() >0){
+                        detailsTable.removeViews(0,  detailsTable.getChildCount());
+                    }
                     String URL = "https://www.themealdb.com/api/json/v1/1/filter.php?i="+search;
                     RequestQueue requestQueue = Volley.newRequestQueue(SearchActivity.this);
                     JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, response -> saveData(response), error -> Log.e("Rest Response error", error.toString()));
@@ -127,5 +138,21 @@ public class SearchActivity extends AppCompatActivity {
         {
             e.printStackTrace();
         }
+
+
     }
+    public String getRandom()
+    {
+        list.clear();
+        int size = sharedPref.getInt("Products_size", 0);
+        final int random = new Random().nextInt(size);
+        if(size!= 0){
+            for(int i=0;i<size;i++)
+            {
+                list.add(sharedPref.getString("Product_" + i, ""));
+            }
+        }
+        return list.get(random);
+    }
+
 }
