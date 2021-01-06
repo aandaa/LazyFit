@@ -1,6 +1,7 @@
 package lv.anda.lazyfit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +43,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         sharedPref = getSharedPreferences("myKey", MODE_PRIVATE);
         editor = sharedPref.edit();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavView_Bar);

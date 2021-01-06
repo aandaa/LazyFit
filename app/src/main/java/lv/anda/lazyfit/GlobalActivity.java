@@ -4,12 +4,14 @@ import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 public class GlobalActivity extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
         boolean value = sharedPreferences.getBoolean("notFirstTime",false);
         Intent intent;

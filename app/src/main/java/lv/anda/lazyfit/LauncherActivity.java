@@ -1,6 +1,7 @@
 package lv.anda.lazyfit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +12,7 @@ public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
         boolean value = sharedPreferences.getBoolean("notFirstTime",false);
         Intent intent;

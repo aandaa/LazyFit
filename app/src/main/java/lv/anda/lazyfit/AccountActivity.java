@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
@@ -23,6 +25,7 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         SectionsPagerAdapterAcc sectionsPagerAdapter = new SectionsPagerAdapterAcc(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager2);
         viewPager.setAdapter(sectionsPagerAdapter);

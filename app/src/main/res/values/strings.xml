@@ -36,4 +36,18 @@
     <string name="edit_products">Edit products</string>
     <string name="products_owned">Products you have:</string>
 
+    <string name="calorie_counter_name">Your calories:</string>
+    <string name="btn_addCalories">Add calories</string>
+    <string name="btn_removeCalories">Remove calories</string>
+    <string name="nutrients_Protein">Protein/meat</string>
+    <string name="nutrients_Grains">Grains</string>
+    <string name="nutrients_Vegetables">Vegetables</string>
+    <string name="nutrients_Fruits">Fruits</string>
+    <string name="nutrients_Sugar">Sugar</string>
+    <string name="nutrients_Dairy">Dairy products</string>
+    <string name="nutrients_Fat">Fat</string>
+    <string name="start_calories">0</string>
+    <string name="grams_input">g</string>
+    <string name="kcal_calories">Kcal</string>
+
 </resources>

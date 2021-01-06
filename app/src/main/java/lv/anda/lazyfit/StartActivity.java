@@ -1,6 +1,7 @@
 package lv.anda.lazyfit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,7 +17,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         Button btn_settings = findViewById(R.id.btn_start);
         btn_settings.setOnClickListener(v -> {
             Intent act_main_intent = new Intent(getApplicationContext(), SettingsActivity.class);
