@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,6 +36,8 @@ public class SearchActivity extends AppCompatActivity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     ArrayList<String> list = new ArrayList<>();
+    private long pressedTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,13 +53,16 @@ public class SearchActivity extends AppCompatActivity {
             if (id == R.id.ic_recipes) {
                 Intent intent = new Intent(SearchActivity.this, MainActivity.class);
                 startActivity(intent);
+                this.finish();
             } else if (id == R.id.ic_calculator) {
                 Intent intent1 = new Intent(SearchActivity.this, CalculatorActivity.class);
                 startActivity(intent1);
+                this.finish();
             } else if (id == R.id.ic_search) {
             }else if(id==R.id.ic_account){
                 Intent intent3 = new Intent(SearchActivity.this, AccountActivity.class);
                 startActivity(intent3);
+                this.finish();
             }
 
             return false;
@@ -93,6 +99,18 @@ public class SearchActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 
     private void saveData(Object result) {

@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 import lv.anda.lazyfit.ui.main.SectionsPagerAdapterAcc;
 
 public class AccountActivity extends AppCompatActivity {
+    private long pressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +41,30 @@ public class AccountActivity extends AppCompatActivity {
             if (id == R.id.ic_recipes) {
                 Intent intent = new Intent(AccountActivity.this, MainActivity.class);
                 startActivity(intent);
+                this.finish();
             } else if (id == R.id.ic_calculator) {
                 Intent intent1 = new Intent(AccountActivity.this, CalculatorActivity.class);
                 startActivity(intent1);
+                this.finish();
             } else if (id == R.id.ic_search) {
                 Intent intent2 = new Intent(AccountActivity.this, SearchActivity.class);
                 startActivity(intent2);
+                this.finish();
             }else if(id==R.id.ic_account){
             }
 
             return false;
         });
+    }
+    @Override
+    public void onBackPressed() {
+
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 }

@@ -12,12 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import lv.anda.lazyfit.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
+    private long pressedTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,15 +48,30 @@ public class MainActivity extends AppCompatActivity {
             } else if (id == R.id.ic_calculator) {
                 Intent intent1 = new Intent(MainActivity.this, CalculatorActivity.class);
                 startActivity(intent1);
+                this.finish();
             } else if (id == R.id.ic_search) {
                 Intent intent2 = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(intent2);
+                this.finish();
             }else if(id==R.id.ic_account){
                 Intent intent3 = new Intent(MainActivity.this, AccountActivity.class);
                 startActivity(intent3);
+                this.finish();
             }
 
             return false;
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 }
