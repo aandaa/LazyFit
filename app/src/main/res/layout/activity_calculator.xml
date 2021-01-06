@@ -196,9 +196,8 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="0"
-        android:textColor="#959191"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarCalculator" />
 
@@ -209,7 +208,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextProtein" />
@@ -221,7 +220,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGrains" />
@@ -233,7 +232,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextVegetables" />
@@ -245,7 +244,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFruits" />
@@ -257,7 +256,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSugar" />
@@ -269,7 +268,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDairy" />
